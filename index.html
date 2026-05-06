@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bilianoki — Livraison de plats africains à domicile à Brazzaville. Savourez les meilleurs plats locaux livrés chez vous en moins de 45 minutes.">
+    <title>Bilianoki — Livraison de plats à domicile à Brazzaville</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">🍲</span>
+                <span class="logo-text">Bilianoki</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+                <li><a href="#tarifs">Tarifs</a></li>
+                <li><a href="#temoignages">Témoignages</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#tarifs" class="nav-cta">Commander</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu de navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <header class="hero" id="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Livraison à Brazzaville
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Bilianoki</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Les meilleurs plats de Brazzaville, livrés chez vous en moins de <strong>45 minutes</strong>. 
+                    Savourez la cuisine congolaise authentique sans quitter votre canapé.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#tarifs" class="btn btn-primary" id="ctaHero">
+                        <i class="fas fa-utensils"></i>
+                        Commander maintenant
+                    </a>
+                    <a href="#comment-ca-marche" class="btn btn-outline">
+                        <i class="fas fa-play-circle"></i>
+                        Comment ça marche
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-target="2500">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Clients satisfaits</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="150">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Plats disponibles</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="45">0</span><span class="stat-unit"> min</span>
+                        <span class="stat-label">Délai moyen</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="hero-food.png" alt="Délicieux plats africains préparés par Bilianoki" loading="eager">
+                    <div class="hero-image-glow"></div>
+                </div>
+                <div class="floating-card card-rating">
+                    <i class="fas fa-star"></i>
+                    <span>4.9/5 — 1200+ avis</span>
+                </div>
+                <div class="floating-card card-delivery">
+                    <i class="fas fa-motorcycle"></i>
+                    <span>Livraison rapide</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,70 1440,80 L1440,120 L0,120 Z" fill="var(--bg-primary)"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- ========== COMMENT ÇA MARCHE ========== -->
+    <section class="section section-steps" id="comment-ca-marche">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simple & Rapide</span>
+                <h2 class="section-title">Comment ça marche ?</h2>
+                <p class="section-description">
+                    Trois étapes simples pour recevoir vos plats préférés directement chez vous.
+                </p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card" data-step="1">
+                    <div class="step-icon-wrapper">
+                        <div class="step-icon">
+                            <i class="fas fa-mobile-screen-button"></i>
+                        </div>
+                        <span class="step-number">01</span>
+                    </div>
+                    <h3 class="step-title">Choisissez votre plat</h3>
+                    <p class="step-description">
+                        Parcourez notre menu varié de plats congolais authentiques et sélectionnez vos favoris.
+                    </p>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="step-card" data-step="2">
+                    <div class="step-icon-wrapper">
+                        <div class="step-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <span class="step-number">02</span>
+                    </div>
+                    <h3 class="step-title">Passez commande</h3>
+                    <p class="step-description">
+                        Validez votre commande et payez facilement par mobile money, carte ou en espèces à la livraison.
+                    </p>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="step-card" data-step="3">
+                    <div class="step-icon-wrapper">
+                        <div class="step-icon">
+                            <i class="fas fa-truck-fast"></i>
+                        </div>
+                        <span class="step-number">03</span>
+                    </div>
+                    <h3 class="step-title">Recevez chez vous</h3>
+                    <p class="step-description">
+                        Un livreur vous apporte votre repas chaud en moins de 45 minutes, où que vous soyez à Brazzaville.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TARIFS ========== -->
+    <section class="section section-pricing" id="tarifs">
+        <div class="pricing-bg-pattern"></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nos Offres</span>
+                <h2 class="section-title">Des formules pour tous les goûts</h2>
+                <p class="section-description">
+                    Choisissez la formule qui vous convient. Livraison incluse dans toutes nos offres !
+                </p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Formule Solo -->
+                <div class="pricing-card" data-aos="fade-up">
+                    <div class="pricing-card-header">
+                        <div class="pricing-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="pricing-name">Solo</h3>
+                        <p class="pricing-tagline">Pour une personne</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-price">
+                            <span class="price-currency">FCFA</span>
+                            <span class="price-amount">3 500</span>
+                            <span class="price-period">/ repas</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check-circle"></i> 1 plat au choix</li>
+                            <li><i class="fas fa-check-circle"></i> 1 boisson incluse</li>
+                            <li><i class="fas fa-check-circle"></i> Livraison gratuite</li>
+                            <li><i class="fas fa-check-circle"></i> Emballage écologique</li>
+                            <li class="disabled"><i class="fas fa-times-circle"></i> Dessert non inclus</li>
+                        </ul>
+                        <a href="#" class="btn btn-pricing" id="ctaSolo">Choisir Solo</a>
+                    </div>
+                </div>
+                <!-- Formule Duo -->
+                <div class="pricing-card pricing-card-featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-badge">⭐ Populaire</div>
+                    <div class="pricing-card-header">
+                        <div class="pricing-icon">
+                            <i class="fas fa-user-group"></i>
+                        </div>
+                        <h3 class="pricing-name">Duo</h3>
+                        <p class="pricing-tagline">Pour deux personnes</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-price">
+                            <span class="price-currency">FCFA</span>
+                            <span class="price-amount">6 000</span>
+                            <span class="price-period">/ repas</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check-circle"></i> 2 plats au choix</li>
+                            <li><i class="fas fa-check-circle"></i> 2 boissons incluses</li>
+                            <li><i class="fas fa-check-circle"></i> Livraison gratuite</li>
+                            <li><i class="fas fa-check-circle"></i> Emballage écologique</li>
+                            <li><i class="fas fa-check-circle"></i> 1 dessert offert</li>
+                        </ul>
+                        <a href="#" class="btn btn-pricing btn-pricing-featured" id="ctaDuo">Choisir Duo</a>
+                    </div>
+                </div>
+                <!-- Formule Famille -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-card-header">
+                        <div class="pricing-icon">
+                            <i class="fas fa-people-group"></i>
+                        </div>
+                        <h3 class="pricing-name">Famille</h3>
+                        <p class="pricing-tagline">Pour toute la famille</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-price">
+                            <span class="price-currency">FCFA</span>
+                            <span class="price-amount">12 000</span>
+                            <span class="price-period">/ repas</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check-circle"></i> 4 plats au choix</li>
+                            <li><i class="fas fa-check-circle"></i> 4 boissons incluses</li>
+                            <li><i class="fas fa-check-circle"></i> Livraison gratuite</li>
+                            <li><i class="fas fa-check-circle"></i> Emballage écologique</li>
+                            <li><i class="fas fa-check-circle"></i> 2 desserts offerts</li>
+                        </ul>
+                        <a href="#" class="btn btn-pricing" id="ctaFamille">Choisir Famille</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TÉMOIGNAGES ========== -->
+    <section class="section section-testimonials" id="temoignages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Avis clients</span>
+                <h2 class="section-title">Ce que disent nos clients</h2>
+                <p class="section-description">
+                    Découvrez pourquoi des milliers de Brazzavillois font confiance à Bilianoki.
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        « Le poulet braisé de Bilianoki est tout simplement le meilleur de Brazzaville ! 
+                        La livraison est rapide et les plats arrivent toujours chauds. Je commande chaque week-end ! »
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, var(--green-500), var(--green-700));">
+                            <span>SM</span>
+                        </div>
+                        <div class="author-info">
+                            <strong>Sylvie Moukoko</strong>
+                            <span>Bacongo, Brazzaville</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        « Service impeccable ! J'ai commandé la formule Famille pour un anniversaire et tout le monde
+                        a adoré. Les prix sont très raisonnables pour la qualité proposée. Merci Bilianoki ! »
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, var(--yellow-500), var(--yellow-700));">
+                            <span>JN</span>
+                        </div>
+                        <div class="author-info">
+                            <strong>Jean-Claude Nkoua</strong>
+                            <span>Poto-Poto, Brazzaville</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        « Enfin un service de livraison fiable à Brazzaville ! Le saka-saka et le poisson salé 
+                        sont délicieux. Le livreur est toujours ponctuel et très aimable. Je recommande à 100% ! »
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, var(--green-400), var(--yellow-500));">
+                            <span>AM</span>
+                        </div>
+                        <div class="author-info">
+                            <strong>Arielle Mpassi</strong>
+                            <span>Moungali, Brazzaville</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="contact">
+        <div class="footer-top-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,40 C480,120 960,0 1440,60 L1440,0 L0,0 Z" fill="var(--bg-primary)"/>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-icon">🍲</span>
+                        <span class="logo-text">Bilianoki</span>
+                    </a>
+                    <p class="footer-description">
+                        Bilianoki, votre service de livraison de plats à domicile à Brazzaville. 
+                        Des saveurs authentiques, livrées avec amour.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+                        <li><a href="#tarifs">Nos tarifs</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Conditions générales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contactez-nous</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Avenue de la Paix, Brazzaville, Congo</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+242068000000">+242 06 800 00 00</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contact@bilianoki.com">contact@bilianoki.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Lun - Dim : 10h - 22h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bilianoki. Tous droits réservés. Fait avec <i class="fas fa-heart"></i> à Brazzaville.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== PAYMENT MODAL ========== -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Step 1: Info -->
+            <div class="modal-step active" data-step="1">
+                <div class="modal-header">
+                    <div class="modal-mtn-logo">
+                        <span class="mtn-icon">📱</span>
+                        <div>
+                            <h3>Commander via MTN Mobile Money</h3>
+                            <p class="modal-plan-label" id="modalPlanLabel">Formule Solo — 3 500 FCFA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="clientName"><i class="fas fa-user"></i> Nom complet</label>
+                        <input type="text" id="clientName" placeholder="Ex : Jean Moukoko" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientAddress"><i class="fas fa-map-marker-alt"></i> Adresse de livraison</label>
+                        <input type="text" id="clientAddress" placeholder="Ex : 45 Avenue de la Paix, Bacongo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientNotes"><i class="fas fa-comment"></i> Instructions (optionnel)</label>
+                        <textarea id="clientNotes" rows="2" placeholder="Ex : Sonner au portail vert, 2ème étage"></textarea>
+                    </div>
+                    <button class="btn btn-modal-next" id="toStep2">
+                        Continuer <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Phone -->
+            <div class="modal-step" data-step="2">
+                <div class="modal-header">
+                    <div class="mtn-brand">
+                        <div class="mtn-badge">
+                            <span class="mtn-yellow-circle">MTN</span>
+                            <span>Mobile Money</span>
+                        </div>
+                    </div>
+                    <p class="modal-subtitle">Entrez votre numéro MTN Mobile Money pour effectuer le paiement.</p>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group phone-group">
+                        <label for="momoPhone"><i class="fas fa-phone"></i> Numéro MTN MoMo</label>
+                        <div class="phone-input-wrapper">
+                            <span class="phone-prefix">+242</span>
+                            <input type="tel" id="momoPhone" placeholder="06 XXX XX XX" maxlength="12" required>
+                        </div>
+                    </div>
+                    <div class="order-summary">
+                        <h4>Récapitulatif</h4>
+                        <div class="summary-row">
+                            <span>Formule</span>
+                            <span id="summaryPlan">Solo</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Livraison</span>
+                            <span class="summary-free">Gratuite</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>Total</span>
+                            <span id="summaryTotal">3 500 FCFA</span>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-modal-back" id="backToStep1">
+                            <i class="fas fa-arrow-left"></i> Retour
+                        </button>
+                        <button class="btn btn-modal-pay" id="toStep3">
+                            <i class="fas fa-lock"></i> Payer maintenant
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Processing -->
+            <div class="modal-step" data-step="3">
+                <div class="modal-body modal-processing">
+                    <div class="processing-spinner"></div>
+                    <h3>Traitement en cours...</h3>
+                    <p>Une demande de paiement a été envoyée sur votre téléphone. Veuillez confirmer sur votre appareil.</p>
+                    <div class="processing-steps">
+                        <div class="proc-step active" id="procStep1">
+                            <i class="fas fa-circle-check"></i> Connexion au serveur MTN
+                        </div>
+                        <div class="proc-step" id="procStep2">
+                            <i class="fas fa-spinner fa-spin"></i> Envoi de la demande de paiement
+                        </div>
+                        <div class="proc-step" id="procStep3">
+                            <i class="fas fa-circle"></i> Confirmation du paiement
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Success -->
+            <div class="modal-step" data-step="4">
+                <div class="modal-body modal-success">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3>Paiement confirmé ! 🎉</h3>
+                    <p>Votre commande a été enregistrée avec succès. Votre repas sera livré dans environ <strong>45 minutes</strong>.</p>
+                    <div class="success-details">
+                        <div class="detail-row">
+                            <span>N° Commande</span>
+                            <span id="orderNumber">BLN-00000</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>Transaction MoMo</span>
+                            <span id="transactionId">TXN-000000</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-modal-done" id="modalDone">
+                        <i class="fas fa-home"></i> Retour à l'accueil
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
