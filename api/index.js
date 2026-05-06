@@ -18,7 +18,8 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname))); // Servir les fichiers HTML/CSS/JS
+// Servir les fichiers HTML/CSS/JS (racine du projet, un niveau au-dessus de 'api')
+app.use(express.static(path.join(__dirname, '../')));
 
 // ============================================
 // Configuration MTN MoMo
@@ -63,15 +64,10 @@ app.post('/api/momo/pay', async (req, res) => {
     try {
         const { amount, phone, planName, clientName, clientAddress, clientNotes } = req.body;
 
-        // Validation
         if (!amount || !phone || !planName) {
-            return res.status(400).json({
-                success: false,
-                error: 'Montant, téléphone et formule sont requis'
-            });
+            return res.status(400).json({ success: false, error: 'Montant, téléphone et formule sont requis' });
         }
 
-        // Formater le numéro de téléphone (ajouter indicatif Congo si nécessaire)
         let formattedPhone = phone.replace(/\s/g, '');
         if (formattedPhone.startsWith('0')) {
             formattedPhone = '242' + formattedPhone.substring(1);
@@ -79,27 +75,19 @@ app.post('/api/momo/pay', async (req, res) => {
             formattedPhone = '242' + formattedPhone;
         }
 
-        // Obtenir le token d'accès
         const accessToken = await getMoMoAccessToken();
-
-        // Générer un ID unique pour cette transaction
         const referenceId = uuidv4();
         const externalId = `BLN-${Date.now()}`;
 
-        // Payload pour Request to Pay
         const payload = {
             amount: String(amount),
             currency: MOMO_CONFIG.currency,
             externalId: externalId,
-            payer: {
-                partyIdType: 'MSISDN',
-                partyId: formattedPhone
-            },
+            payer: { partyIdType: 'MSISDN', partyId: formattedPhone },
             payerMessage: `Bilianoki - Commande ${planName}`,
             payeeNote: `Commande ${planName} pour ${clientName}`
         };
 
-        // Envoyer la demande de paiement à MTN MoMo
         await axios.post(
             `${MOMO_CONFIG.baseUrl}/collection/v1_0/requesttopay`,
             payload,
@@ -115,39 +103,21 @@ app.post('/api/momo/pay', async (req, res) => {
             }
         );
 
-        // Sauvegarder la transaction
         transactions.set(referenceId, {
-            referenceId,
-            externalId,
-            amount,
-            phone: formattedPhone,
-            planName,
-            clientName,
-            clientAddress,
-            clientNotes,
-            status: 'PENDING',
-            createdAt: new Date().toISOString()
+            referenceId, externalId, amount, phone: formattedPhone, planName, clientName, clientAddress, clientNotes,
+            status: 'PENDING', createdAt: new Date().toISOString()
         });
 
         console.log(`✅ Paiement initié - Ref: ${referenceId} - ${planName} - ${amount} ${MOMO_CONFIG.currency}`);
 
         res.status(202).json({
-            success: true,
-            referenceId,
-            externalId,
-            message: 'Demande de paiement envoyée. Veuillez confirmer sur votre téléphone.'
+            success: true, referenceId, externalId, message: 'Demande de paiement envoyée. Veuillez confirmer sur votre téléphone.'
         });
-
     } catch (error) {
         console.error('❌ Erreur paiement:', error.response?.data || error.message);
-
         const errorMsg = error.response?.data?.message || error.message;
         const statusCode = error.response?.status || 500;
-
-        res.status(statusCode).json({
-            success: false,
-            error: `Erreur lors du paiement: ${errorMsg}`
-        });
+        res.status(statusCode).json({ success: false, error: `Erreur lors du paiement: ${errorMsg}` });
     }
 });
 
@@ -157,11 +127,8 @@ app.post('/api/momo/pay', async (req, res) => {
 app.get('/api/momo/status/:referenceId', async (req, res) => {
     try {
         const { referenceId } = req.params;
-
-        // Obtenir le token d'accès
         const accessToken = await getMoMoAccessToken();
 
-        // Vérifier le statut auprès de MTN MoMo
         const response = await axios.get(
             `${MOMO_CONFIG.baseUrl}/collection/v1_0/requesttopay/${referenceId}`,
             {
@@ -175,7 +142,6 @@ app.get('/api/momo/status/:referenceId', async (req, res) => {
 
         const momoStatus = response.data;
 
-        // Mettre à jour notre stockage local
         if (transactions.has(referenceId)) {
             const txn = transactions.get(referenceId);
             txn.status = momoStatus.status;
@@ -187,19 +153,15 @@ app.get('/api/momo/status/:referenceId', async (req, res) => {
 
         res.json({
             success: true,
-            status: momoStatus.status, // PENDING, SUCCESSFUL, FAILED
+            status: momoStatus.status,
             financialTransactionId: momoStatus.financialTransactionId || null,
             externalId: momoStatus.externalId,
             amount: momoStatus.amount,
             currency: momoStatus.currency
         });
-
     } catch (error) {
         console.error('❌ Erreur statut:', error.response?.data || error.message);
-        res.status(500).json({
-            success: false,
-            error: 'Impossible de vérifier le statut du paiement'
-        });
+        res.status(500).json({ success: false, error: 'Impossible de vérifier le statut du paiement' });
     }
 });
 
@@ -208,7 +170,6 @@ app.get('/api/momo/status/:referenceId', async (req, res) => {
 // ============================================
 app.post('/api/momo/callback', (req, res) => {
     console.log('📨 Callback MoMo reçu:', JSON.stringify(req.body, null, 2));
-
     const { referenceId, status, financialTransactionId } = req.body;
 
     if (referenceId && transactions.has(referenceId)) {
@@ -226,25 +187,30 @@ app.post('/api/momo/callback', (req, res) => {
 // ROUTE: Page d'accueil
 // ============================================
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, '../index.html'));
 });
 
 // ============================================
-// Démarrer le serveur
+// Exportation pour Vercel (Important)
 // ============================================
-app.listen(PORT, () => {
-    console.log('\n' + '='.repeat(50));
-    console.log('🍲 Bilianoki - Serveur démarré');
-    console.log('='.repeat(50));
-    console.log(`\n🌐 Site web    : http://localhost:${PORT}`);
-    console.log(`💰 API Paiement: http://localhost:${PORT}/api/momo/pay`);
-    console.log(`📊 API Statut  : http://localhost:${PORT}/api/momo/status/:id`);
-    console.log(`\n🔧 Environnement MoMo: ${MOMO_CONFIG.environment}`);
+module.exports = app;
 
-    if (!MOMO_CONFIG.subscriptionKey || MOMO_CONFIG.subscriptionKey === 'your_subscription_key_here') {
-        console.log('\n⚠️  ATTENTION: Configurez vos clés MTN MoMo dans le fichier .env');
-        console.log('   Exécutez "npm run setup-momo" après avoir ajouté votre Subscription Key');
-    }
+// Démarrer le serveur seulement si on n'est pas sur Vercel
+if (process.env.NODE_ENV !== 'production' || process.env.START_SERVER === 'true') {
+    app.listen(PORT, () => {
+        console.log('\n' + '='.repeat(50));
+        console.log('🍲 Bilianoki - Serveur démarré');
+        console.log('='.repeat(50));
+        console.log(`\n🌐 Site web    : http://localhost:${PORT}`);
+        console.log(`💰 API Paiement: http://localhost:${PORT}/api/momo/pay`);
+        console.log(`📊 API Statut  : http://localhost:${PORT}/api/momo/status/:id`);
+        console.log(`\n🔧 Environnement MoMo: ${MOMO_CONFIG.environment}`);
 
-    console.log('\n' + '='.repeat(50) + '\n');
-});
+        if (!MOMO_CONFIG.subscriptionKey || MOMO_CONFIG.subscriptionKey === 'your_subscription_key_here') {
+            console.log('\n⚠️  ATTENTION: Configurez vos clés MTN MoMo dans le fichier .env');
+            console.log('   Exécutez "npm run setup-momo" après avoir ajouté votre Subscription Key');
+        }
+
+        console.log('\n' + '='.repeat(50) + '\n');
+    });
+}

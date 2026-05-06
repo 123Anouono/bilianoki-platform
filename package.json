@@ -2,10 +2,10 @@
   "name": "bilianoki-backend",
   "version": "1.0.0",
   "description": "Backend Bilianoki - Livraison de plats avec paiement MTN Mobile Money",
-  "main": "server.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
+    "start": "node api/index.js",
+    "dev": "node api/index.js",
     "setup-momo": "node setup-momo.js"
   },
   "dependencies": {
