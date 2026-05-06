@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 // Servir les fichiers HTML/CSS/JS (racine du projet, un niveau au-dessus de 'api')
-app.use(express.static(path.join(__dirname, '../')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // ============================================
 // Configuration MTN MoMo
@@ -187,7 +187,7 @@ app.post('/api/momo/callback', (req, res) => {
 // ROUTE: Page d'accueil
 // ============================================
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // ============================================
